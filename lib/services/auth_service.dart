@@ -4,7 +4,11 @@ import 'shared_pref_service.dart';
 
 class AuthService extends BaseApiService {
   final _storage = StorageService();
+  
 
+  ///
+  ///Otp Request
+  ///
   Future<bool> requestOtp(String phone) async {
     final data = {
       "data": {
@@ -21,7 +25,11 @@ class AuthService extends BaseApiService {
       return false;
     }
   }
+  
 
+  ///
+  ///Verify otp
+  ///
   Future<bool> verifyOtp(String phone, String otp) async {
     final data = {
       "data": {
@@ -31,7 +39,6 @@ class AuthService extends BaseApiService {
     };
     try {
       final response = await post('/auth/registration-otp-codes/actions/phone/verify-otp', data);
-      print(response);
       final token = response.data['data']['attributes']['auth_status']['access_token'];
       if (token != null) {
         await _storage.saveToken(token);
@@ -43,7 +50,13 @@ class AuthService extends BaseApiService {
       return false;
     }
   }
-
+  ///
+  ///To get Token
+  ///
   Future<String?> getSavedToken() => _storage.getToken();
+
+  ///
+  ///Remove Token
+  ///
   Future<void> clearSavedToken() => _storage.clearToken();
 }

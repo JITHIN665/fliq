@@ -105,6 +105,7 @@ class _ChatListScreenState extends ConsumerState<ChatListScreen> {
                                             senderId: 55,
                                             receiverId: int.parse(user.authUserId.toString()),
                                             user: user.name ?? "",
+                                            profilePhotoUrl: user.profilePhotoUrl??"",
                                           ),
                                     ),
                                   );

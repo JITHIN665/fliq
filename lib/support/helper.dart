@@ -13,3 +13,28 @@ String formatTime(String datetimeStr) {
 String capitalizeEachWord(String name) {
   return name.split(' ').map((word) => word.isNotEmpty ? word[0].toUpperCase() + word.substring(1).toLowerCase() : '').join(' ');
 }
+
+String getDateLabel(DateTime messageDate) {
+  final now = DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  final messageDay = DateTime(messageDate.year, messageDate.month, messageDate.day);
+
+  if (messageDay == today) {
+    return "Today";
+  } else if (messageDay == today.subtract(const Duration(days: 1))) {
+    return "Yesterday";
+  } else {
+    return DateFormat('MMM dd').format(messageDate); // Example: Apr 26
+  }
+}
+
+/// Formats a datetime string to 12-hour time (e.g., "10:30 AM").
+/// If input is null or invalid, uses current time.
+String formatTimeFromString(String? dateTimeStr) {
+  try {
+    final dateTime = DateTime.parse(dateTimeStr ?? DateTime.now().toIso8601String());
+    return DateFormat.jm().format(dateTime);
+  } catch (e) {
+    return DateFormat.jm().format(DateTime.now());
+  }
+}
