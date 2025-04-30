@@ -21,6 +21,7 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color? text;
   final Color? gridColor;
   final Color? ternaryText;
+  final List<Color>? primaryGradient;
 
   const AppColors({
     required this.background,
@@ -29,7 +30,8 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.secondaryText,
     required this.text,
     required this.gridColor,
-    required this.ternaryText
+    required this.ternaryText,
+    required this.primaryGradient,
   });
 
   @override
@@ -41,6 +43,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? text,
     Color? gridColor,
     Color? ternaryText,
+    List<Color>? primaryGradient,
   }) {
     return AppColors(
       background: background ?? this.background,
@@ -50,6 +53,7 @@ class AppColors extends ThemeExtension<AppColors> {
       text: text ?? this.text,
       gridColor: gridColor ?? this.gridColor,
       ternaryText: ternaryText ?? this.ternaryText,
+      primaryGradient: primaryGradient ?? this.primaryGradient,
     );
   }
 
@@ -66,6 +70,7 @@ class AppColors extends ThemeExtension<AppColors> {
       text: Color.lerp(text, other.text, t),
       gridColor: Color.lerp(gridColor, other.gridColor, t),
       ternaryText: Color.lerp(ternaryText, other.ternaryText, t),
+      primaryGradient: primaryGradient,
     );
   }
 }
