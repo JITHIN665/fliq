@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:japx/japx.dart';
 import '../models/user_model.dart';
 import '../models/chat_message_model.dart';
-import 'base_api_service.dart';
+import '../support/base_api_service.dart';
 
 class ChatService extends BaseApiService {
   Future<List<UserModel>> fetchChatUsers() async {
@@ -10,6 +10,7 @@ class ChatService extends BaseApiService {
       final response = await get('/chat/chat-messages/queries/contact-users');
       final decoded = Japx.decode(response.data);
       final List<dynamic> userData = decoded['data'];
+      print(response);
       return userData.map((e) => UserModel.fromJson(e)).toList();
     } catch (e) {
       print("Fetch Chat Users Error: $e");

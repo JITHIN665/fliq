@@ -13,7 +13,7 @@ ThemeData getAppTheme(BuildContext context) {
         secondaryText: Color(0xff4A90E2),
         ternaryText: Color(0xffFFFFFF),
         text: Color(0xff3B5998),
-        gridColor: Color(0xffFF80A1),
+        gridColor: Color(0xff2E0E16),
         primaryGradient: [Color(0xffFF80A1), Color(0xffE6446E)],
       ),
     ],

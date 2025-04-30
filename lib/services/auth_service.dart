@@ -1,5 +1,5 @@
 import '../core/constants.dart';
-import 'base_api_service.dart';
+import '../support/base_api_service.dart';
 import 'shared_pref_service.dart';
 
 class AuthService extends BaseApiService {

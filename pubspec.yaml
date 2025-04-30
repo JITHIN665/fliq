@@ -40,8 +40,9 @@ dependencies:
   json_annotation: ^4.9.0
   japx: ^2.0.0
   pinput: ^2.3.0
-  flutter_svg: ^2.0.7
   country_picker: ^2.0.27
+  shared_preferences: ^2.5.3
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
@@ -53,10 +54,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
-  build_runner: ^2.4.6
-  freezed: ^2.4.6
-  json_serializable: ^6.7.1
-  shared_preferences: ^2.2.2
+  build_runner: 2.4.13
+  freezed: 2.5.1
+  json_serializable: 6.9.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -12,8 +12,7 @@ part of 'chat_message_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) {
   return _ChatMessage.fromJson(json);
@@ -21,19 +20,31 @@ ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ChatMessage {
-  String get id => throw _privateConstructorUsedError;
-  int get sender_id => throw _privateConstructorUsedError;
-  int get receiver_id => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
+  @JsonKey(name: 'chat_thread_id')
+  int? get chatThreadId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'chat_message_type_id')
+  int? get chatMessageTypeId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sender_id')
+  int? get senderId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'receiver_id')
+  int? get receiverId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'message')
+  String? get message => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_one_time_view')
+  bool? get isOneTimeView => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_on_vanish_mode')
+  bool? get isOnVanishMode => throw _privateConstructorUsedError;
   @JsonKey(name: 'sent_at')
   String? get sentAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'delivered_at')
+  String? get deliveredAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'created_at')
+  String? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'updated_at')
+  String? get updatedAt => throw _privateConstructorUsedError;
 
-  /// Serializes this ChatMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of ChatMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $ChatMessageCopyWith<ChatMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -41,17 +52,21 @@ mixin _$ChatMessage {
 /// @nodoc
 abstract class $ChatMessageCopyWith<$Res> {
   factory $ChatMessageCopyWith(
-    ChatMessage value,
-    $Res Function(ChatMessage) then,
-  ) = _$ChatMessageCopyWithImpl<$Res, ChatMessage>;
+          ChatMessage value, $Res Function(ChatMessage) then) =
+      _$ChatMessageCopyWithImpl<$Res, ChatMessage>;
   @useResult
-  $Res call({
-    String id,
-    int sender_id,
-    int receiver_id,
-    String message,
-    @JsonKey(name: 'sent_at') String? sentAt,
-  });
+  $Res call(
+      {@JsonKey(name: 'chat_thread_id') int? chatThreadId,
+      @JsonKey(name: 'chat_message_type_id') int? chatMessageTypeId,
+      @JsonKey(name: 'sender_id') int? senderId,
+      @JsonKey(name: 'receiver_id') int? receiverId,
+      @JsonKey(name: 'message') String? message,
+      @JsonKey(name: 'is_one_time_view') bool? isOneTimeView,
+      @JsonKey(name: 'is_on_vanish_mode') bool? isOnVanishMode,
+      @JsonKey(name: 'sent_at') String? sentAt,
+      @JsonKey(name: 'delivered_at') String? deliveredAt,
+      @JsonKey(name: 'created_at') String? createdAt,
+      @JsonKey(name: 'updated_at') String? updatedAt});
 }
 
 /// @nodoc
@@ -64,47 +79,67 @@ class _$ChatMessageCopyWithImpl<$Res, $Val extends ChatMessage>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of ChatMessage
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? sender_id = null,
-    Object? receiver_id = null,
-    Object? message = null,
+    Object? chatThreadId = freezed,
+    Object? chatMessageTypeId = freezed,
+    Object? senderId = freezed,
+    Object? receiverId = freezed,
+    Object? message = freezed,
+    Object? isOneTimeView = freezed,
+    Object? isOnVanishMode = freezed,
     Object? sentAt = freezed,
+    Object? deliveredAt = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
-    return _then(
-      _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as String,
-            sender_id:
-                null == sender_id
-                    ? _value.sender_id
-                    : sender_id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            receiver_id:
-                null == receiver_id
-                    ? _value.receiver_id
-                    : receiver_id // ignore: cast_nullable_to_non_nullable
-                        as int,
-            message:
-                null == message
-                    ? _value.message
-                    : message // ignore: cast_nullable_to_non_nullable
-                        as String,
-            sentAt:
-                freezed == sentAt
-                    ? _value.sentAt
-                    : sentAt // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      chatThreadId: freezed == chatThreadId
+          ? _value.chatThreadId
+          : chatThreadId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      chatMessageTypeId: freezed == chatMessageTypeId
+          ? _value.chatMessageTypeId
+          : chatMessageTypeId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      senderId: freezed == senderId
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      receiverId: freezed == receiverId
+          ? _value.receiverId
+          : receiverId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isOneTimeView: freezed == isOneTimeView
+          ? _value.isOneTimeView
+          : isOneTimeView // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isOnVanishMode: freezed == isOnVanishMode
+          ? _value.isOnVanishMode
+          : isOnVanishMode // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      sentAt: freezed == sentAt
+          ? _value.sentAt
+          : sentAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deliveredAt: freezed == deliveredAt
+          ? _value.deliveredAt
+          : deliveredAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
   }
 }
 
@@ -112,18 +147,22 @@ class _$ChatMessageCopyWithImpl<$Res, $Val extends ChatMessage>
 abstract class _$$ChatMessageImplCopyWith<$Res>
     implements $ChatMessageCopyWith<$Res> {
   factory _$$ChatMessageImplCopyWith(
-    _$ChatMessageImpl value,
-    $Res Function(_$ChatMessageImpl) then,
-  ) = __$$ChatMessageImplCopyWithImpl<$Res>;
+          _$ChatMessageImpl value, $Res Function(_$ChatMessageImpl) then) =
+      __$$ChatMessageImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String id,
-    int sender_id,
-    int receiver_id,
-    String message,
-    @JsonKey(name: 'sent_at') String? sentAt,
-  });
+  $Res call(
+      {@JsonKey(name: 'chat_thread_id') int? chatThreadId,
+      @JsonKey(name: 'chat_message_type_id') int? chatMessageTypeId,
+      @JsonKey(name: 'sender_id') int? senderId,
+      @JsonKey(name: 'receiver_id') int? receiverId,
+      @JsonKey(name: 'message') String? message,
+      @JsonKey(name: 'is_one_time_view') bool? isOneTimeView,
+      @JsonKey(name: 'is_on_vanish_mode') bool? isOnVanishMode,
+      @JsonKey(name: 'sent_at') String? sentAt,
+      @JsonKey(name: 'delivered_at') String? deliveredAt,
+      @JsonKey(name: 'created_at') String? createdAt,
+      @JsonKey(name: 'updated_at') String? updatedAt});
 }
 
 /// @nodoc
@@ -131,82 +170,147 @@ class __$$ChatMessageImplCopyWithImpl<$Res>
     extends _$ChatMessageCopyWithImpl<$Res, _$ChatMessageImpl>
     implements _$$ChatMessageImplCopyWith<$Res> {
   __$$ChatMessageImplCopyWithImpl(
-    _$ChatMessageImpl _value,
-    $Res Function(_$ChatMessageImpl) _then,
-  ) : super(_value, _then);
+      _$ChatMessageImpl _value, $Res Function(_$ChatMessageImpl) _then)
+      : super(_value, _then);
 
-  /// Create a copy of ChatMessage
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? sender_id = null,
-    Object? receiver_id = null,
-    Object? message = null,
+    Object? chatThreadId = freezed,
+    Object? chatMessageTypeId = freezed,
+    Object? senderId = freezed,
+    Object? receiverId = freezed,
+    Object? message = freezed,
+    Object? isOneTimeView = freezed,
+    Object? isOnVanishMode = freezed,
     Object? sentAt = freezed,
+    Object? deliveredAt = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
-    return _then(
-      _$ChatMessageImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
-        sender_id:
-            null == sender_id
-                ? _value.sender_id
-                : sender_id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        receiver_id:
-            null == receiver_id
-                ? _value.receiver_id
-                : receiver_id // ignore: cast_nullable_to_non_nullable
-                    as int,
-        message:
-            null == message
-                ? _value.message
-                : message // ignore: cast_nullable_to_non_nullable
-                    as String,
-        sentAt:
-            freezed == sentAt
-                ? _value.sentAt
-                : sentAt // ignore: cast_nullable_to_non_nullable
-                    as String?,
-      ),
-    );
+    return _then(_$ChatMessageImpl(
+      chatThreadId: freezed == chatThreadId
+          ? _value.chatThreadId
+          : chatThreadId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      chatMessageTypeId: freezed == chatMessageTypeId
+          ? _value.chatMessageTypeId
+          : chatMessageTypeId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      senderId: freezed == senderId
+          ? _value.senderId
+          : senderId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      receiverId: freezed == receiverId
+          ? _value.receiverId
+          : receiverId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isOneTimeView: freezed == isOneTimeView
+          ? _value.isOneTimeView
+          : isOneTimeView // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isOnVanishMode: freezed == isOnVanishMode
+          ? _value.isOnVanishMode
+          : isOnVanishMode // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      sentAt: freezed == sentAt
+          ? _value.sentAt
+          : sentAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      deliveredAt: freezed == deliveredAt
+          ? _value.deliveredAt
+          : deliveredAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createdAt: freezed == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ChatMessageImpl implements _ChatMessage {
-  _$ChatMessageImpl({
-    required this.id,
-    required this.sender_id,
-    required this.receiver_id,
-    required this.message,
-    @JsonKey(name: 'sent_at') this.sentAt,
-  });
+class _$ChatMessageImpl with DiagnosticableTreeMixin implements _ChatMessage {
+  const _$ChatMessageImpl(
+      {@JsonKey(name: 'chat_thread_id') this.chatThreadId,
+      @JsonKey(name: 'chat_message_type_id') this.chatMessageTypeId,
+      @JsonKey(name: 'sender_id') this.senderId,
+      @JsonKey(name: 'receiver_id') this.receiverId,
+      @JsonKey(name: 'message') this.message,
+      @JsonKey(name: 'is_one_time_view') this.isOneTimeView,
+      @JsonKey(name: 'is_on_vanish_mode') this.isOnVanishMode,
+      @JsonKey(name: 'sent_at') this.sentAt,
+      @JsonKey(name: 'delivered_at') this.deliveredAt,
+      @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'updated_at') this.updatedAt});
 
   factory _$ChatMessageImpl.fromJson(Map<String, dynamic> json) =>
       _$$ChatMessageImplFromJson(json);
 
   @override
-  final String id;
+  @JsonKey(name: 'chat_thread_id')
+  final int? chatThreadId;
   @override
-  final int sender_id;
+  @JsonKey(name: 'chat_message_type_id')
+  final int? chatMessageTypeId;
   @override
-  final int receiver_id;
+  @JsonKey(name: 'sender_id')
+  final int? senderId;
   @override
-  final String message;
+  @JsonKey(name: 'receiver_id')
+  final int? receiverId;
+  @override
+  @JsonKey(name: 'message')
+  final String? message;
+  @override
+  @JsonKey(name: 'is_one_time_view')
+  final bool? isOneTimeView;
+  @override
+  @JsonKey(name: 'is_on_vanish_mode')
+  final bool? isOnVanishMode;
   @override
   @JsonKey(name: 'sent_at')
   final String? sentAt;
+  @override
+  @JsonKey(name: 'delivered_at')
+  final String? deliveredAt;
+  @override
+  @JsonKey(name: 'created_at')
+  final String? createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  final String? updatedAt;
 
   @override
-  String toString() {
-    return 'ChatMessage(id: $id, sender_id: $sender_id, receiver_id: $receiver_id, message: $message, sentAt: $sentAt)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ChatMessage(chatThreadId: $chatThreadId, chatMessageTypeId: $chatMessageTypeId, senderId: $senderId, receiverId: $receiverId, message: $message, isOneTimeView: $isOneTimeView, isOnVanishMode: $isOnVanishMode, sentAt: $sentAt, deliveredAt: $deliveredAt, createdAt: $createdAt, updatedAt: $updatedAt)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ChatMessage'))
+      ..add(DiagnosticsProperty('chatThreadId', chatThreadId))
+      ..add(DiagnosticsProperty('chatMessageTypeId', chatMessageTypeId))
+      ..add(DiagnosticsProperty('senderId', senderId))
+      ..add(DiagnosticsProperty('receiverId', receiverId))
+      ..add(DiagnosticsProperty('message', message))
+      ..add(DiagnosticsProperty('isOneTimeView', isOneTimeView))
+      ..add(DiagnosticsProperty('isOnVanishMode', isOnVanishMode))
+      ..add(DiagnosticsProperty('sentAt', sentAt))
+      ..add(DiagnosticsProperty('deliveredAt', deliveredAt))
+      ..add(DiagnosticsProperty('createdAt', createdAt))
+      ..add(DiagnosticsProperty('updatedAt', updatedAt));
   }
 
   @override
@@ -214,23 +318,45 @@ class _$ChatMessageImpl implements _ChatMessage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChatMessageImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.sender_id, sender_id) ||
-                other.sender_id == sender_id) &&
-            (identical(other.receiver_id, receiver_id) ||
-                other.receiver_id == receiver_id) &&
+            (identical(other.chatThreadId, chatThreadId) ||
+                other.chatThreadId == chatThreadId) &&
+            (identical(other.chatMessageTypeId, chatMessageTypeId) ||
+                other.chatMessageTypeId == chatMessageTypeId) &&
+            (identical(other.senderId, senderId) ||
+                other.senderId == senderId) &&
+            (identical(other.receiverId, receiverId) ||
+                other.receiverId == receiverId) &&
             (identical(other.message, message) || other.message == message) &&
-            (identical(other.sentAt, sentAt) || other.sentAt == sentAt));
+            (identical(other.isOneTimeView, isOneTimeView) ||
+                other.isOneTimeView == isOneTimeView) &&
+            (identical(other.isOnVanishMode, isOnVanishMode) ||
+                other.isOnVanishMode == isOnVanishMode) &&
+            (identical(other.sentAt, sentAt) || other.sentAt == sentAt) &&
+            (identical(other.deliveredAt, deliveredAt) ||
+                other.deliveredAt == deliveredAt) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, sender_id, receiver_id, message, sentAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      chatThreadId,
+      chatMessageTypeId,
+      senderId,
+      receiverId,
+      message,
+      isOneTimeView,
+      isOnVanishMode,
+      sentAt,
+      deliveredAt,
+      createdAt,
+      updatedAt);
 
-  /// Create a copy of ChatMessage
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ChatMessageImplCopyWith<_$ChatMessageImpl> get copyWith =>
@@ -238,38 +364,65 @@ class _$ChatMessageImpl implements _ChatMessage {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ChatMessageImplToJson(this);
+    return _$$ChatMessageImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _ChatMessage implements ChatMessage {
-  factory _ChatMessage({
-    required final String id,
-    required final int sender_id,
-    required final int receiver_id,
-    required final String message,
-    @JsonKey(name: 'sent_at') final String? sentAt,
-  }) = _$ChatMessageImpl;
+  const factory _ChatMessage(
+          {@JsonKey(name: 'chat_thread_id') final int? chatThreadId,
+          @JsonKey(name: 'chat_message_type_id') final int? chatMessageTypeId,
+          @JsonKey(name: 'sender_id') final int? senderId,
+          @JsonKey(name: 'receiver_id') final int? receiverId,
+          @JsonKey(name: 'message') final String? message,
+          @JsonKey(name: 'is_one_time_view') final bool? isOneTimeView,
+          @JsonKey(name: 'is_on_vanish_mode') final bool? isOnVanishMode,
+          @JsonKey(name: 'sent_at') final String? sentAt,
+          @JsonKey(name: 'delivered_at') final String? deliveredAt,
+          @JsonKey(name: 'created_at') final String? createdAt,
+          @JsonKey(name: 'updated_at') final String? updatedAt}) =
+      _$ChatMessageImpl;
 
   factory _ChatMessage.fromJson(Map<String, dynamic> json) =
       _$ChatMessageImpl.fromJson;
 
   @override
-  String get id;
+  @JsonKey(name: 'chat_thread_id')
+  int? get chatThreadId;
   @override
-  int get sender_id;
+  @JsonKey(name: 'chat_message_type_id')
+  int? get chatMessageTypeId;
   @override
-  int get receiver_id;
+  @JsonKey(name: 'sender_id')
+  int? get senderId;
   @override
-  String get message;
+  @JsonKey(name: 'receiver_id')
+  int? get receiverId;
+  @override
+  @JsonKey(name: 'message')
+  String? get message;
+  @override
+  @JsonKey(name: 'is_one_time_view')
+  bool? get isOneTimeView;
+  @override
+  @JsonKey(name: 'is_on_vanish_mode')
+  bool? get isOnVanishMode;
   @override
   @JsonKey(name: 'sent_at')
   String? get sentAt;
-
-  /// Create a copy of ChatMessage
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(name: 'delivered_at')
+  String? get deliveredAt;
+  @override
+  @JsonKey(name: 'created_at')
+  String? get createdAt;
+  @override
+  @JsonKey(name: 'updated_at')
+  String? get updatedAt;
+  @override
+  @JsonKey(ignore: true)
   _$$ChatMessageImplCopyWith<_$ChatMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

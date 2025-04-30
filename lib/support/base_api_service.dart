@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'shared_pref_service.dart';
+import '../services/shared_pref_service.dart';
 
 class BaseApiService {
   final Dio _dio = Dio(BaseOptions(baseUrl: 'https://test.myfliqapp.com/api/v1'));

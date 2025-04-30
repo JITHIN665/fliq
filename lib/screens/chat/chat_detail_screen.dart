@@ -48,14 +48,14 @@ class ChatDetailScreen extends ConsumerWidget {
                   itemCount: messages.length,
                   itemBuilder: (_, index) {
                     final msg = messages[index];
-                    final isMe = msg.sender_id == senderId;
+                    final isMe = msg.senderId == senderId;
                     return Align(
                       alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
                       child: Container(
                         margin: const EdgeInsets.symmetric(vertical: 4),
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(color: isMe ? Colors.pink.shade100 : Colors.grey.shade300, borderRadius: BorderRadius.circular(10)),
-                        child: Text(msg.message),
+                        child: Text(msg.message??""),
                       ),
                     );
                   },
