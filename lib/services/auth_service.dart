@@ -1,10 +1,9 @@
-import '../core/constants.dart';
+import 'package:fliq/services/device_meta_service.dart';
 import '../support/base_api_service.dart';
 import 'shared_pref_service.dart';
 
 class AuthService extends BaseApiService {
   final _storage = StorageService();
-  
 
   ///
   ///Otp Request
@@ -25,16 +24,16 @@ class AuthService extends BaseApiService {
       return false;
     }
   }
-  
 
   ///
   ///Verify otp
   ///
   Future<bool> verifyOtp(String phone, String otp) async {
+    final meta = await DeviceMetaService.getDeviceMeta();
     final data = {
       "data": {
         "type": "registration-otp-codes",
-        "attributes": {"phone": phone, "otp": int.parse(otp), "device_meta": defaultDeviceMeta},
+        "attributes": {"phone": phone, "otp": int.parse(otp), "device_meta": meta},
       },
     };
     try {
@@ -50,6 +49,7 @@ class AuthService extends BaseApiService {
       return false;
     }
   }
+
   ///
   ///To get Token
   ///
